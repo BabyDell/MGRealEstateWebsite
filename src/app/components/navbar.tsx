@@ -23,6 +23,23 @@ export default function NavBar() {
     return width;
   };
 
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", () => {
+      const navbar = document.getElementById("navbar");
+
+      // Add a null check for navbar
+      if (navbar) {
+        const scrollPosition = window.scrollY;
+
+        const navbarOpacity = (scrollPosition / 700) + 0.5;
+
+        if (navbarOpacity >= 0.5) {
+          navbar.style.backgroundColor = `rgba(0, 0, 0, ${navbarOpacity})`;
+        }
+      }
+    });
+  }
+
   useWidth();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -42,9 +59,11 @@ export default function NavBar() {
   return (
     <>
       {transition((style, item) => item && <AnimatedDialog style={style} />)}
-      
 
-      <div className="fixed flex w-full h-auto py-2 px-5 bg-white">
+      <div
+        id="navbar"
+        className="fixed flex w-full h-auto py-2 px-5 bg-black bg-opacity-50"
+      >
         <a href="https://www.century21.com/" className="flex" target="_blank">
           <Image
             src="/img/century21logo.png"
@@ -59,28 +78,28 @@ export default function NavBar() {
             <TbMenuDeep className="text-black  w-6 h-6" />
           </button>
         </div>
-        <div className="hidden md:flex items-center justify-end mr-24 w-full space-x-5 text-black">
+        <div className="hidden md:flex items-center justify-end mr-24 w-full space-x-10 text-white">
           <a
             href="/"
-            className="hover:bg-slate-300 rounded-2xl px-3 py-2 text-m font-medium"
+            className="hover-effect rounded-2xl  py-2 text-m font-medium"
           >
             Home
           </a>
           <a
             href="/"
-            className="hover:bg-slate-300 rounded-2xl px-3 py-2 text-m font-medium"
+            className="hover-effect rounded-2xl  py-2 text-m font-medium"
           >
             Meet Maria
           </a>
           <a
             href="/"
-            className="hover:bg-slate-300 rounded-2xl px-3 py-2 text-m font-medium"
+            className="hover-effect rounded-2xl  py-2 text-m font-medium"
           >
             Listings
           </a>
           <a
             href="/"
-            className="hover:bg-slate-300 rounded-2xl px-3 py-2 text-m font-medium"
+            className="hover-effect rounded-2xl  py-2 text-m font-medium"
           >
             Contact
           </a>

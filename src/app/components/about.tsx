@@ -19,12 +19,12 @@ const About: React.FC = () => {
               className="rounded-full m-auto"
               alt="Maria"
             />
-            <div className="text-3xl font-semibold mt-2 mb-2">Maria Guiterrez</div>
+            <div className="text-3xl font-semibold mt-2 mb-2 ">Maria Guiterrez</div>
             <div className="text-2xl">(760)-391-8941</div>
             <div className="text-2xl hidden sm:contents">realtormgutierrez@gmail.com</div>
           </div>
           <div>
-            <div className="text-md lg:text-xl xl:text-2xl font-semibold text-amber-950">
+            <div className="text-md lg:text-xl xl:text-2xl font-semibold text-amber-950 mb-20">
               Maria Gutierrez has lived in the Coachella Valley for over 19
               years and has taken an interest in the ever-growing real estate
               industry. She went to the Valley's Community College to obtain an
@@ -42,6 +42,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
+      <hr className="m-auto h-px max-w-7xl bg-gray-600 border-0 text-center" />
     </div>
   );
 };

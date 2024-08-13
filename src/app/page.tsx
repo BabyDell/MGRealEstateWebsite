@@ -1,6 +1,7 @@
 import About from "./components/about";
 import Background from "./components/background";
 import NavBar from "./components/navbar";
+import PaginationComponent from "./components/pagnation";
 import Trust from "./components/trust";
 
 export default function Page() {
@@ -10,6 +11,7 @@ export default function Page() {
       <Background />
       <About />
       <Trust />
+      <PaginationComponent />
     </>
   );
 }
