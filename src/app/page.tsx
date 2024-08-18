@@ -1,3 +1,4 @@
+import Contact from "./components/Contact";
 import About from "./components/about";
 import Background from "./components/background";
 import NavBar from "./components/navbar";
@@ -12,6 +13,7 @@ export default function Page() {
       <About />
       <Trust />
       <PaginationComponent />
+      <Contact />
     </>
   );
 }

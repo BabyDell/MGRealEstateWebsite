@@ -1,18 +1,35 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { houses } from "../data.js";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['600'],
+})
 
 const PaginationComponent = () => {
-  const itemsPerPage = 6;
+  const [itemsPerPage, setItemsPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(0);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(window.innerWidth <= 640 ? 3 : 6);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const content = houses.map((house) => (
-    <div className="">
+    <a className="" target="_blank" href={house.link}>
       <div
-        className="image-container bg-cover rounded-lg h-64 w-full"
+        className="image-container bg-cover rounded-lg h-52 w-full"
         style={{ backgroundImage: `url(${house.image})` }}
       >
-        <div className="flex flex-col justify-end w-full h-full  text-white bg-gradient-to-t from-black via-transparent to-transparent text-sm ">
+        <div className="flex flex-col justify-end w-full h-full text-white bg-gradient-to-t from-black via-transparent to-transparent text-xs ">
           <div className="w-full ml-2 flex">
             <span className="">{house.price + " "}</span>
             <div className="w-px h-auto mx-2 bg-white"> </div>
@@ -30,7 +47,7 @@ const PaginationComponent = () => {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   ));
 
   const totalPages = Math.ceil(content.length / itemsPerPage);
@@ -54,29 +71,30 @@ const PaginationComponent = () => {
 
   return (
     <>
-    <header id="header" className="text-xl">Listings</header>
-    <section id="body">
-      <div className="flex grid grid-cols-2 lg:grid-cols-3 justify-center items-center w-full md:w-3/4 mx-auto gap-5">
+    <header id="header" className="text-4xl mt-10 mb-2 font-medium ">Listings</header>
+    <div className={`text-xl mb-10 text-gray-600 ${montserrat.className}`}>Click on a Listing to View More Information</div>
+    <section id="body" className="pb-20">
+      <div className="flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-x-2 gap-y-2 w-auto mx-auto md:w-[700px] lg:w-[1100px]">
 
       {content
         .slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
         .map((item, index) => (
-          <div key={index} className="content">
+          <div key={index} className="w-80 mx-auto">
             {item}
           </div>
         ))}
         </div>
-      <article id="pagin">
-        <nav>
+      <article id="pagin" className="mt-5">
+        <nav className="flex space-x-2 justify-center">
           <span>
             <button className="prev" onClick={prevPage}>
               {"<<"}
             </button>
           </span>
-          <ul>
+          <ul className="flex space-x-2">
             {Array.from({ length: totalPages }, (_, index) => (
-              <li key={index} className={index === currentPage ? "active" : ""}>
-                <button  onClick={(event) => handlePageClick(event, index)}>
+              <li key={index} className={index === currentPage ? "active bg-sky-800 text-white px-1 rounded-md" : "hover:bg-sky-200 rounded-md px-1"}>
+                <button className="" onClick={(event) => handlePageClick(event, index)}>
                   {index + 1}
                 </button>
               </li>

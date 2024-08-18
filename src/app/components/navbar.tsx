@@ -50,19 +50,41 @@ export default function NavBar() {
     leave: { x: 100, opacity: 0 },
   });
 
-  const toggleMenu = () => {
+  const [popupStyle, setPopupStyle] = useState({});
+
+  const toggleMenu = (event) => {
+    event.preventDefault();
     setIsOpen((prevState) => !prevState);
+    setPopupStyle({
+      position: 'fixed',
+      top: `${event.clientY - 30}px`,
+    });
   };
 
   const AnimatedDialog = animated(popUpNav);
 
   return (
     <>
-      {transition((style, item) => item && <AnimatedDialog style={style} />)}
+    {isOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 10,
+          }}
+          onClick={toggleMenu}
+        />
+      )}
+      {transition((style, item) => item && <AnimatedDialog style={{ ...style, ...popupStyle , zIndex: 20}} />)}
 
       <div
         id="navbar"
         className="fixed flex w-full h-auto py-2 px-5 bg-black bg-opacity-50"
+        
       >
         <a href="https://www.century21.com/" className="flex" target="_blank">
           <Image
@@ -75,7 +97,7 @@ export default function NavBar() {
         </a>
         <div className="md:hidden w-full flex items-center justify-end">
           <button className="absolute z-50" onClick={toggleMenu}>
-            <TbMenuDeep className="text-black  w-6 h-6" />
+            <TbMenuDeep className="text-white  w-6 h-6 z-20" />
           </button>
         </div>
         <div className="hidden md:flex items-center justify-end mr-24 w-full space-x-10 text-white">

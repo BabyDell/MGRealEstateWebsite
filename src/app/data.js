@@ -1,5 +1,17 @@
 export const houses = [
   {
+    image: "/img/listings/grapefruit.jpg",
+    address: "0 Grapefruit Boulevard",
+    city: "Thermal",
+    state: "CA",
+    zip: "92274",
+    price: "$97,000",
+    sqft: "5,662",
+    status: "Active",
+    property: "Lot",
+    link: "https://www.flexmls.com/share/AsSJc/0-Grapefruit-Boulevard,-Thermal,-CA-92274"
+  },
+  {
     image: "/img/listings/venice.jpg",
     address: "139 Venice Lane",
     city: "Thermal",
@@ -11,93 +23,7 @@ export const houses = [
     sqft: "3,070",
     status: "Closed",
     property: "House",
-  },
-  {
-    image: "/img/listings/leto.jpg",
-    address: "2870 Leto Avenue",
-    city: "Thermal",
-    state: "CA",
-    zip: "92274",
-    price: "$10,000",
-    sqft: "11,015",
-    status: "Closed",
-    property: "Lot",
-  },
-  {
-    image: "/img/listings/balboa.jpg",
-    address: "56 Balboa Avenue",
-    city: "Thermal",
-    state: "CA",
-    zip: "92274",
-    price: "$15,000",
-    sqft: "6,949",
-    status: "Closed",
-    property: "Lot",
-
-  },
-  {
-    image: "/img/listings/market.jpg",
-    address: "0 Market Street",
-    city: "Thermal",
-    state: "CA",
-    zip: "92274",
-    price: "$45,000",
-    sqft: "5,663",
-    status: "Closed",
-    property: "Lot",
-
-  },
-  {
-    image: "/img/listings/tramonto.jpg",
-    address: "84255 Tramonto Way",
-    city: "Indio",
-    state: "CA",
-    zip: "92203",
-    price: "$510,000",
-    beds: 3,
-    baths: 2,
-    sqft: "1,637",
-    status: "Closed",
-    property: "House",
-
-  },
-  {
-    image: "/img/listings/avenue64.jpg",
-    address: "88961 Avenue 64",
-    city: "Thermal",
-    state: "CA",
-    zip: "92274",
-    price: "$650,000",
-    beds: 2,
-    baths: 1,
-    sqft: "261,360",
-    status: "Closed",
-    property: "House",
-
-  },
-  {
-    image: "/img/listings/leeward.jpg",
-    address: "0 Leeward Drive",
-    city: "Mecca",
-    state: "CA",
-    zip: "92254",
-    price: "$25,000",
-    sqft: "7,405",
-    status: "Closed",
-    property: "Lot",
-
-  },
-  {
-    image: "/img/listings/cottonwood.jpg",
-    address: "0 Cottonwood Drive",
-    city: "Desert Hot Springs",
-    state: "CA",
-    zip: "92241",
-    price: "$55,000",
-    sqft: "10,890",
-    status: "Closed",
-    property: "Lot",
-
+    link: "https://www.flexmls.com/share/AsT84/139-Venice-Lane,-Thermal,-CA-92274"
   },
   {
     image: "/img/listings/avila.jpg",
@@ -111,8 +37,23 @@ export const houses = [
     sqft: "1,008",
     status: "Closed",
     property: "House",
-
+    link: "https://my.flexmls.com/MariaGutierrez7/search/email_links/20240729003415939045000000/listings/20221014221332215350000000?contact_id=20240729002657236185000000"
   },
+  {
+    image: "/img/listings/tramonto.jpg",
+    address: "84255 Tramonto Way",
+    city: "Indio",
+    state: "CA",
+    zip: "92203",
+    price: "$510,000",
+    beds: 3,
+    baths: 2,
+    sqft: "1,637",
+    status: "Closed",
+    property: "House",
+    link: "https://www.flexmls.com/share/AsT6a/84255-Tramonto-Way,-Indio,-CA-92203"
+  },
+  
   {
     image: "/img/listings/brown.jpg",
     address: "80838 Brown Street",
@@ -125,18 +66,80 @@ export const houses = [
     sqft: "1,261",
     status: "Closed",
     property: "House",
+    link: "https://www.flexmls.com/share/AsT4T/80838-Brown-Street,-Indio,-CA-92201"
   },
   {
-    image: "/img/listings/grapefruit.jpg",
-    address: "0 Grapefruit Boulevard",
+    image: "/img/listings/avenue64.jpg",
+    address: "88961 Avenue 64",
     city: "Thermal",
     state: "CA",
     zip: "92274",
-    price: "$97,000",
-    sqft: "5,662",
-    status: "Active",
+    price: "$650,000",
+    beds: 2,
+    baths: 1,
+    sqft: "261,360",
+    status: "Closed",
+    property: "House",
+    link: "https://www.flexmls.com/share/AsT6x/88961-Avenue-64,-Thermal,-CA-92274"
+  },
+  {
+    image: "/img/listings/leto.jpg",
+    address: "2870 Leto Avenue",
+    city: "Thermal",
+    state: "CA",
+    zip: "92274",
+    price: "$10,000",
+    sqft: "11,015",
+    status: "Closed",
     property: "Lot",
-
+    link: "https://www.flexmls.com/share/AsT58/2870-Leto-Avenue,-Thermal,-CA-92274"
+  },
+  {
+    image: "/img/listings/balboa.jpg",
+    address: "56 Balboa Avenue",
+    city: "Thermal",
+    state: "CA",
+    zip: "92274",
+    price: "$15,000",
+    sqft: "6,949",
+    status: "Closed",
+    property: "Lot",
+    link: "https://www.flexmls.com/share/AsT5o/56-Balboa-Avenue,-Thermal,-CA-92274"
+  },
+  {
+    image: "/img/listings/market.jpg",
+    address: "0 Market Street",
+    city: "Thermal",
+    state: "CA",
+    zip: "92274",
+    price: "$45,000",
+    sqft: "5,663",
+    status: "Closed",
+    property: "Lot",
+    link: "https://www.flexmls.com/share/AsT6E/0-Market-Street,-Thermal,-CA-92274"
+  },
+  {
+    image: "/img/listings/leeward.jpg",
+    address: "0 Leeward Drive",
+    city: "Mecca",
+    state: "CA",
+    zip: "92254",
+    price: "$25,000",
+    sqft: "7,405",
+    status: "Closed",
+    property: "Lot",
+    link: "https://www.flexmls.com/share/AsT35/0-Leeward-Drive,-Mecca,-CA-92254"
+  },
+  {
+    image: "/img/listings/cottonwood.jpg",
+    address: "0 Cottonwood Drive",
+    city: "Desert Hot Springs",
+    state: "CA",
+    zip: "92241",
+    price: "$55,000",
+    sqft: "10,890",
+    status: "Closed",
+    property: "Lot",
+    link: "https://www.flexmls.com/share/AsT3Y/0-Cottonwood-Drive,-Desert-Hot-Springs,-CA-92241"
   },
 ];
-
