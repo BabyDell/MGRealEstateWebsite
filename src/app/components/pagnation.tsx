@@ -52,20 +52,20 @@ const PaginationComponent = () => {
 
   const totalPages = Math.ceil(content.length / itemsPerPage);
 
-  const showPage = (page) => {
+  const showPage = (page: number): void => {
     if (page < 0 || page >= totalPages) return;
     setCurrentPage(page);
   };
 
-  const prevPage = (event) => {
+  const prevPage = (event: any) => {
     showPage(currentPage - 1);
   };
 
-  const nextPage = (event) => {
+  const nextPage = (event: any) => {
     showPage(currentPage + 1);
   };
 
-  const handlePageClick = (event, page) => {
+  const handlePageClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, page: number) => {
     showPage(page);
   };
 

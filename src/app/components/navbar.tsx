@@ -52,7 +52,7 @@ export default function NavBar() {
 
   const [popupStyle, setPopupStyle] = useState({});
 
-  const toggleMenu = (event) => {
+  const toggleMenu = (event: { preventDefault: () => void; clientY: number; }) => {
     event.preventDefault();
     setIsOpen((prevState) => !prevState);
     setPopupStyle({
