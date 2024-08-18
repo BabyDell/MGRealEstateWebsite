@@ -23,8 +23,8 @@ const PaginationComponent = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const content = houses.map((house) => (
-    <a className="" target="_blank" href={house.link}>
+  const content = houses.map((house, index) => (
+    <a key={index} className="" target="_blank" href={house.link}>
       <div
         className="image-container bg-cover rounded-lg h-52 w-full"
         style={{ backgroundImage: `url(${house.image})` }}
