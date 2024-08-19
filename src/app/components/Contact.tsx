@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function Contact() {
   return (
     <div className="w-full h-auto bg-zinc-800 pt-10 pb-5 font-serif">
-      <footer className="text-neutral-200 flex grid grid-cols-2 w-full">
-        <div className="m-auto lg:ml-36 text-left">
+      <footer className="text-neutral-200 flex grid md:grid-cols-2 w-full">
+        <div className="ml-8 md:ml-20 lg:ml-36 text-left">
           <h1 className="text-md sm:text-lg md:text-xl lg:text-3xl underline underline-offset-8">
             Maria Gutierrez
           </h1>
@@ -15,7 +15,7 @@ export default function Contact() {
             <h2>Cell: (760)-391-8941</h2>
           </span>
         </div>
-        <div className="flex justify-end m-auto lg:mr-36">
+        <div className="md:flex justify-end ml-6 mt-2 md:m-auto ">
           <div>
             <Image
               src="/img/century21logo.png"
