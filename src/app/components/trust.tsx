@@ -16,8 +16,8 @@ export default function Trust() {
       >
         Realtor You Can Trust
       </span>
-      <div className="flex sm:flex-row items-center justify-center space-x-4 sm:space-x-8 md:space-x-10 lg:space-x-24 pb-20 mt-10">
-        <div className="w-56 sm:w-64 md:w-96 h-[400px] sm:h-[400px] md:h-[475px] bg-gray-400 bg-opacity-95 rounded-xl pt-5 sm:py-10 px-5">
+      <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-8 md:space-x-10 lg:space-x-24 pb-20 mt-10">
+        <div className="w-56 sm:w-64 md:w-96 h-[380px] sm:h-[400px] md:h-[475px] bg-gray-400 bg-opacity-95 rounded-xl pt-5 sm:py-10 px-5 mb-5 sm:mb-0">
           <Image
             src="/img/buy-icon.png"
             className="mx-auto"
