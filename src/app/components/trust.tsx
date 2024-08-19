@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 
 export default function Trust() {
   return (
-    <div className="w-full h-auto bg-fixed bg-[url('/img/indoor-home.jpg')] bg-cover pt-16">
+    <div className="w-full h-auto bg-fixed bg-[url('/img/indoor-home.jpg')] bg-cover pt-16 background-small2">
       <span
         className={`text-shadow text-white m-auto text-center font-bold tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-5xl ${montserrat.className}`}
       >
