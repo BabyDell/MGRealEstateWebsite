@@ -102,25 +102,25 @@ export default function NavBar() {
         </div>
         <div className="hidden md:flex items-center justify-end mr-24 w-full space-x-10 text-white">
           <a
-            href="/"
+            href="#home"
             className="hover-effect rounded-2xl  py-2 text-m font-medium"
           >
             Home
           </a>
           <a
-            href="/"
+            href="#about"
             className="hover-effect rounded-2xl  py-2 text-m font-medium"
           >
             Meet Maria
           </a>
           <a
-            href="/"
+            href="#listings"
             className="hover-effect rounded-2xl  py-2 text-m font-medium"
           >
             Listings
           </a>
           <a
-            href="/"
+            href="#contact"
             className="hover-effect rounded-2xl  py-2 text-m font-medium"
           >
             Contact

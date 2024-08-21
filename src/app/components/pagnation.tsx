@@ -71,7 +71,7 @@ const PaginationComponent = () => {
 
   return (
     <>
-    <header id="header" className="text-4xl mt-10 mb-2 font-medium ">Listings</header>
+    <header id="listings" className="text-4xl mt-10 mb-2 font-medium ">Listings</header>
     <div className={`text-xl mb-10 text-gray-600 ${montserrat.className}`}>Click on a Listing to View More Information</div>
     <section id="body" className="pb-20">
       <div className="flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-x-2 gap-y-2 w-auto mx-auto md:w-[700px] lg:w-[1100px]">

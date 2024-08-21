@@ -75,3 +75,7 @@ body {
     background-size: cover;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

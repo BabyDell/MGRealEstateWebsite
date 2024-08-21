@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const About: React.FC = () => {
   return (
-    <div className="w-full mb-10">
+    <div id="about" className="w-full mb-10">
       <div className="pt-10">
         <span className="text-4xl font-semibold text-amber-950">
           Meet Maria
