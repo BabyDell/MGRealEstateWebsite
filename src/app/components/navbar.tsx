@@ -1,132 +1,102 @@
 "use client";
-import Image from "next/image";
+
 import { useState, useEffect } from "react";
-import { useTransition, animated } from "react-spring";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { TbMenuDeep } from "react-icons/tb";
-import popUpNav from "./popUpNav";
+import Link from "next/link";
 
 export default function NavBar() {
-  //Makes the navbar close when the screen is resized to a certain width
-  const useWidth = () => {
-    const [width, setWidth] = useState(0);
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-      if (window.innerWidth > 768) {
-        setIsOpen(false);
-      }
-    };
-    useEffect(() => {
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    return width;
-  };
-
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", () => {
-      const navbar = document.getElementById("navbar");
-
-      // Add a null check for navbar
-      if (navbar) {
-        const scrollPosition = window.scrollY;
-
-        const navbarOpacity = (scrollPosition / 700) + 0.5;
-
-        if (navbarOpacity >= 0.5) {
-          navbar.style.backgroundColor = `rgba(0, 0, 0, ${navbarOpacity})`;
-        }
-      }
-    });
-  }
-
-  useWidth();
-
   const [isOpen, setIsOpen] = useState(false);
+  const [scrollOpacity, setScrollOpacity] = useState(0);
 
-  const transition = useTransition(isOpen, {
-    from: { x: 100, opacity: 0 },
-    enter: { x: 0, opacity: 1 },
-    leave: { x: 100, opacity: 0 },
-  });
 
-  const [popupStyle, setPopupStyle] = useState({});
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const navbarOpacity = Math.min(scrollPosition / 700 + 0.5, 1);
+      setScrollOpacity(navbarOpacity);
+    };
 
-  const toggleMenu = (event: { preventDefault: () => void; clientY: number; }) => {
-    event.preventDefault();
-    setIsOpen((prevState) => !prevState);
-    setPopupStyle({
-      position: 'fixed',
-      top: `${event.clientY - 30}px`,
-    });
-  };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const AnimatedDialog = animated(popUpNav);
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const menuItems = [
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "Meet Maria" },
+    { href: "#listings", label: "Listings" },
+    { href: "#contact", label: "Contact" },
+  ];
 
   return (
     <>
-    {isOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            zIndex: 10,
-          }}
-          onClick={toggleMenu}
-        />
-      )}
-      {transition((style, item) => item && <AnimatedDialog style={{ ...style, ...popupStyle , zIndex: 20}} />)}
-
-      <div
-        id="navbar"
-        className="fixed flex w-full h-auto py-2 px-5 bg-black bg-opacity-50"
-        
+      <nav
+        className="fixed top-0 left-0 right-0 z-50 py-2 px-5 transition-colors duration-300 bg-opacity-50 bg-black"
+        style={{ backgroundColor: `rgba(0, 0, 0, ${scrollOpacity})` }}
       >
-        <a href="https://www.century21.com/" className="flex" target="_blank">
-          <Image
-            src="/img/century21logo.png"
-            className=""
-            width={200}
-            height={100}
-            alt="Century 21 Logo"
-          />
-        </a>
-        <div className="md:hidden w-full flex items-center justify-end">
-          <button className="absolute z-50" onClick={toggleMenu}>
-            <TbMenuDeep className="text-white  w-6 h-6 z-20" />
+        <div className="container mx-auto flex justify-between items-center">
+          <Link
+            href="https://www.century21.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/img/century21logo.png"
+              width={200}
+              height={100}
+              alt="Century 21 Logo"
+            />
+          </Link>
+          <div className="hidden md:flex space-x-6">
+            {menuItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-white hover:text-gray-300 transition duration-300 hover-effect"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <button className="md:hidden text-white" onClick={toggleMenu}>
+            <TbMenuDeep className="w-6 h-6" />
           </button>
         </div>
-        <div className="hidden md:flex items-center justify-end mr-24 w-full space-x-10 text-white">
-          <a
-            href="#home"
-            className="hover-effect rounded-2xl  py-2 text-m font-medium"
+      </nav>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween" }}
+            className="fixed top-0 right-0 h-full w-full bg-black z-50 p-5"
           >
-            Home
-          </a>
-          <a
-            href="#about"
-            className="hover-effect rounded-2xl  py-2 text-m font-medium"
-          >
-            Meet Maria
-          </a>
-          <a
-            href="#listings"
-            className="hover-effect rounded-2xl  py-2 text-m font-medium"
-          >
-            Listings
-          </a>
-          <a
-            href="#contact"
-            className="hover-effect rounded-2xl  py-2 text-m font-medium"
-          >
-            Contact
-          </a>
-        </div>
-      </div>
+            <button
+              onClick={toggleMenu}
+              className="absolute top-4 right-4 text-white"
+            >
+              <TbMenuDeep className="w-6 h-6" />
+            </button>
+            <div className="flex flex-col space-y-4 mt-16">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-white hover:text-gray-300 transition duration-300 hover-effect"
+                  onClick={toggleMenu}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

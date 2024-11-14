@@ -29,7 +29,7 @@ export default function Trust() {
           <div className="font-medium text-sm sm:text-md md:text-lg font-serif">
             Buying a home is one of the biggest decisions of your life, and
             having the right agent is critical in the process. I can find your
-            need and want, that is specifically catered to you.
+            needs and wants, that is specifically catered to you.
           </div>
         </div>
         <div className="w-56 sm:w-64 md:w-96 h-[400px] sm:h-[400px] md:h-[475px] bg-gray-400 bg-opacity-95 rounded-xl sm:py-5 px-5">

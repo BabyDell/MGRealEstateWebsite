@@ -79,3 +79,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { animated } from "react-spring";
 
 const popUpNav: React.FC<{ style?: React.CSSProperties }> = ({style}) => {
